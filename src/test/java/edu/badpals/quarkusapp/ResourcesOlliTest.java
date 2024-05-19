@@ -6,6 +6,7 @@ import io.restassured.http.ContentType;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.core.MediaType;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -26,10 +27,10 @@ class ResourcesOlliTest {
      * Injecta el servicio en Resources.
      */
 
-    /*@Test
+    @Test
     public void test_injeccion() {
         Assertions.assertThat(resources.service).isNotNull();
-    }*/
+    }
 
     /**
      * En el endpoint /wellcome
