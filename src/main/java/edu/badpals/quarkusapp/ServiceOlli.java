@@ -50,4 +50,19 @@ public class ServiceOlli {
 
         return orden;
     }
+
+    public List<Orden> comandaMultiple(String nombre_usuaria, List<String> items) {
+        Usuaria usuaria = Usuaria.findById(nombre_usuaria);
+        List<Orden> ordenes = new ArrayList<>();
+
+        if(usuaria != null){
+            for(String item : items){
+                Orden orden = comanda(nombre_usuaria,item);
+                if (orden != null) {
+                    ordenes.add(orden);
+                }
+            }
+        }
+        return ordenes;
+    }
 }
