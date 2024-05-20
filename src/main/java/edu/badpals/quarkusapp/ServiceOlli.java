@@ -2,6 +2,8 @@ package edu.badpals.quarkusapp;
 
 import jakarta.enterprise.context.ApplicationScoped;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @ApplicationScoped
@@ -19,5 +21,19 @@ public class ServiceOlli {
         return item.isPresent()?
                 item.get():
                 new Item();
+    }
+
+    public List<Orden> cargaOrden(String nombre_usuaria) {
+        List<Orden> ordenes = Orden.listAll();
+        Optional<Usuaria> usuaria = Usuaria.findByIdOptional(nombre_usuaria);
+
+        List<Orden> ordenesFiltradas = new ArrayList<>();
+        for (Orden orden : ordenes){
+            if(orden.getUser().getNombre().equals(nombre_usuaria)){
+                ordenesFiltradas.add(orden);
+            }
+        }
+
+        return ordenesFiltradas;
     }
 }
