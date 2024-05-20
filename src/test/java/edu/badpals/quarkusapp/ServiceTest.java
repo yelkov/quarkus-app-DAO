@@ -230,7 +230,7 @@ public class ServiceTest {
 	 * cuando la destreza de la usuaria sea menor
 	 * que la calidad del Item.
 	 */
-	/*@Test
+	@Test
 	public void test_comanda_item_sin_pro() {
 		Assertions.assertThat(servicio).isNotNull();
 		Orden orden = servicio.comanda("Doobey", "+5 Dexterity Vest");
@@ -238,7 +238,7 @@ public class ServiceTest {
 
 		Orden pedido = em.find(Orden.class, 3L);
         Assertions.assertThat(pedido).isNull();
-	}*/
+	}
 
 	/**
 	 * Implementa el metodo comandaMultiple para que una usuaria
