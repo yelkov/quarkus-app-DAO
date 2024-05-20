@@ -2,14 +2,13 @@ package edu.badpals.quarkusapp;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
-import org.hibernate.annotations.JoinColumnOrFormula;
+
 
 @Entity
 @Table(name="t_ordenes")
 public class Orden extends PanacheEntityBase {
 
-    public Orden() {
-    }
+    public Orden() {}
 
     public Orden(Usuaria user, Item item) {
         this.user = user;
@@ -18,6 +17,7 @@ public class Orden extends PanacheEntityBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ord_id")
     private long id;
 
     @OneToOne
