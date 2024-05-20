@@ -3,6 +3,7 @@ package edu.badpals.quarkusapp;
 import java.util.Arrays;
 import java.util.List;
 
+import jakarta.persistence.TypedQuery;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -164,7 +165,7 @@ public class ServiceTest {
 	 * 
      * El metodo devuelve la orden de tipo Orden creada.
 	 */
-	/*@Test
+	@Test
 	@Transactional
 	public void test_comanda_ok() {
         Assertions.assertThat(servicio).isNotNull();
@@ -183,7 +184,7 @@ public class ServiceTest {
 		// AgedBrie tendra una id < 100L por lo que se encuentra en el index 0 de pedidos
 		Assertions.assertThat(pedidos.get(0).getItem().getNombre()).isEqualToIgnoringCase("AgedBrie");
 		em.find(Orden.class, pedidos.get(0).getId()).delete();
-	}*/
+	}
 
 	/**
      * Implementa el metodo comanda del servicio
