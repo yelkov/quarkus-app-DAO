@@ -17,8 +17,8 @@ public class ServiceTest {
     @PersistenceContext
     jakarta.persistence.EntityManager em;
 
-    @Inject
-    ServiceOlli servicio;
+    /*@Inject
+    ServiceOlli servicio;*/
 
     /**
 	 * MAPPINGS de la entidades a las tablas de la BBDD.
@@ -32,14 +32,14 @@ public class ServiceTest {
 	 * Completa la definicion y el mapping
 	 * de la clase Item a la tabla t_items
 	 */
-    /*@Test
+    @Test
     public void test_mapping_normalItem() {
         Item elixir = em.find(Item.class, "Elixir of the Mongoose");
         Assertions.assertThat(elixir).isNotNull();
         Assertions.assertThat(elixir.getNombre()).isEqualTo("Elixir of the Mongoose");
 		Assertions.assertThat(elixir.getQuality()).isEqualTo(7);
         Assertions.assertThat(elixir.getTipo()).isEqualTo("NormalItem");
-    }*/
+    }
 
 	/**
 	 * Completa la definicion y el mapping
