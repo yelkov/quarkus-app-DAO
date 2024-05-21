@@ -14,6 +14,8 @@ public class ServiceOlli {
     UsuariaRepository usuariaRepository;
     @Inject
     ItemRepository itemRepository;
+    @Inject
+    OrdenRepository ordenRepository;
 
     public Usuaria cargaUsuaria(String nombre_usuaria) {
         Optional<Usuaria> usuaria = usuariaRepository.findByIdOptional(nombre_usuaria);
@@ -30,9 +32,9 @@ public class ServiceOlli {
                 new Item();
     }
 
-    /*public List<Orden> cargaOrden(String nombre_usuaria) {
-        List<Orden> ordenes = Orden.listAll();
-        Optional<Usuaria> usuaria = Usuaria.findByIdOptional(nombre_usuaria);
+    public List<Orden> cargaOrden(String nombre_usuaria) {
+        List<Orden> ordenes = ordenRepository.listAll();
+        Optional<Usuaria> usuaria = usuariaRepository.findByIdOptional(nombre_usuaria);
 
         List<Orden> ordenesFiltradas = new ArrayList<>();
         for (Orden orden : ordenes){
@@ -42,24 +44,24 @@ public class ServiceOlli {
         }
 
         return ordenesFiltradas;
-    }*/
+    }
 
-    /*public Orden comanda(String nombre_usuaria, String nombre_item) {
-        Usuaria usuaria = Usuaria.findById(nombre_usuaria);
-        Item item = Item.findById(nombre_item);
+    public Orden comanda(String nombre_usuaria, String nombre_item) {
+        Usuaria usuaria = usuariaRepository.findById(nombre_usuaria);
+        Item item = itemRepository.findById(nombre_item);
 
         Orden orden = null;
         if( usuaria != null && item != null
             && usuaria.getDestreza() > item.getQuality()) {
            orden = new Orden(usuaria,item);
-           orden.persist();
+           ordenRepository.persist(orden);
         }
 
         return orden;
-    }*/
+    }
 
-    /*public List<Orden> comandaMultiple(String nombre_usuaria, List<String> items) {
-        Usuaria usuaria = Usuaria.findById(nombre_usuaria);
+    public List<Orden> comandaMultiple(String nombre_usuaria, List<String> items) {
+        Usuaria usuaria = usuariaRepository.findById(nombre_usuaria);
         List<Orden> ordenes = new ArrayList<>();
 
         if(usuaria != null){
@@ -71,5 +73,5 @@ public class ServiceOlli {
             }
         }
         return ordenes;
-    }*/
+    }
 }

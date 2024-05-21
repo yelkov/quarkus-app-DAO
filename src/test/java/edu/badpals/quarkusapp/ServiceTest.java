@@ -60,13 +60,13 @@ public class ServiceTest {
 	 * de la clase Orden a la tabla t_ordenes
 	 * El id de esta clase ha de seguir una estrategia Identity
 	 */
-	/*@Test
+	@Test
 	public void test_mapping_orden() {
 		Orden pedido = em.find(Orden.class, 100L);
         Assertions.assertThat(pedido).isNotNull();
         Assertions.assertThat(pedido.getUser().getNombre()).isEqualTo("Doobey");
 		Assertions.assertThat(pedido.getItem().getNombre()).isEqualToIgnoringCase("Elixir of the Mongoose");
-	}*/
+	}
 
 	/** SERVICIO */
 
@@ -136,7 +136,7 @@ public class ServiceTest {
      * Si no existe, devuelve una lista vacía.
 	 */
 
-   /* @Test
+    @Test
 	public void test_carga_orden() {
         Assertions.assertThat(servicio).isNotNull();
 		List<Orden> ordenes = servicio.cargaOrden("Hermione");
@@ -156,7 +156,7 @@ public class ServiceTest {
 		Assertions.assertThat(ordenes).isEmpty();
 	}
 
-    *//**
+    /**
      * Implementa el metodo "comanda" del servicio
 	 * que permite a una usuaria pedir un item.
      * La usuaria y el item ya existen en la bbdd (NO has de crearlos).
@@ -164,7 +164,7 @@ public class ServiceTest {
 	 * Guarda esta orden en su tabla en la base de datos.
 	 * 
      * El metodo devuelve la orden de tipo Orden creada.
-	 *//*
+	 */
 	@Test
 	@Transactional
 	public void test_comanda_ok() {
@@ -187,11 +187,11 @@ public class ServiceTest {
 		em.remove(orden);
 	}
 
-	*//**
+	/**
      * Implementa el metodo comanda del servicio
 	 * para que NO permita generar pedidos de productos
 	 * si no existe la usuaria en la base de datos.
-	 *//*
+	 */
 	@Test
 	public void test_comanda_no_user() {
 		Assertions.assertThat(servicio).isNotNull();
@@ -206,11 +206,11 @@ public class ServiceTest {
         Assertions.assertThat(pedido).isNull();
 	}
     
-	*//**
+	/**
      * Implementa el metodo comanda del servicio
 	 * para que NO permita generar pedidos de productos
 	 * si no existe el item en la base de datos.
-	 *//*
+	 */
 	@Test
 	public void test_comanda_no_item() {
 		Assertions.assertThat(servicio).isNotNull();
@@ -225,12 +225,12 @@ public class ServiceTest {
         Assertions.assertThat(pedido).isNull();
 	}
 
-	*//**
+	/**
 	 * Modifica el metodo comanda para que 
 	 * NO permita generar pedidos de productos
 	 * cuando la destreza de la usuaria sea menor
 	 * que la calidad del Item.
-	 *//*
+	 */
 	@Test
 	public void test_comanda_item_sin_pro() {
 		Assertions.assertThat(servicio).isNotNull();
@@ -241,7 +241,7 @@ public class ServiceTest {
         Assertions.assertThat(pedido).isNull();
 	}
 
-	*//**
+	/**
 	 * Implementa el metodo comandaMultiple para que una usuaria
 	 * pueda ordenar más de un Item a la vez.
 	 * Guarda las ordenes en la base de datos.
@@ -252,7 +252,7 @@ public class ServiceTest {
 	 * en la base de datos.
 	 * 
 	 * No se ordenan items que no existan en la base de datos.
-	 *//*
+	 */
 
 	@Test
 	@Transactional
@@ -293,5 +293,5 @@ public class ServiceTest {
 		Assertions.assertThat(servicio).isNotNull();
 		List<Orden> ordenes = servicio.comandaMultiple("Hermione", Arrays.asList("Guardapelo Salazar", "Reliquias de la Muerte"));
 		Assertions.assertThat(ordenes).isEmpty();
-	}*/
+	}
 	}

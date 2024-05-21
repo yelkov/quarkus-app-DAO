@@ -1,12 +1,12 @@
 package edu.badpals.quarkusapp;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+
 import jakarta.persistence.*;
 
 
 @Entity
 @Table(name="t_ordenes")
-public class Orden extends PanacheEntityBase {
+public class Orden{
 
     public Orden() {}
 
