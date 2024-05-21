@@ -1,6 +1,7 @@
 package edu.badpals.quarkusapp;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,22 +9,26 @@ import java.util.Optional;
 
 @ApplicationScoped
 public class ServiceOlli {
+
+    @Inject
+    UsuariaRepository usuariaRepository;
+
     public Usuaria cargaUsuaria(String nombre_usuaria) {
-        Optional<Usuaria> usuaria = Usuaria.findByIdOptional(nombre_usuaria);
+        Optional<Usuaria> usuaria = usuariaRepository.findByIdOptional(nombre_usuaria);
         return usuaria.isPresent()?
                 usuaria.get():
                 new Usuaria();
     }
 
 
-    public Item cargaItem(String nombre_item) {
+    /*public Item cargaItem(String nombre_item) {
         Optional<Item> item = Item.findByIdOptional(nombre_item);
         return item.isPresent()?
                 item.get():
                 new Item();
-    }
+    }*/
 
-    public List<Orden> cargaOrden(String nombre_usuaria) {
+    /*public List<Orden> cargaOrden(String nombre_usuaria) {
         List<Orden> ordenes = Orden.listAll();
         Optional<Usuaria> usuaria = Usuaria.findByIdOptional(nombre_usuaria);
 
@@ -35,9 +40,9 @@ public class ServiceOlli {
         }
 
         return ordenesFiltradas;
-    }
+    }*/
 
-    public Orden comanda(String nombre_usuaria, String nombre_item) {
+    /*public Orden comanda(String nombre_usuaria, String nombre_item) {
         Usuaria usuaria = Usuaria.findById(nombre_usuaria);
         Item item = Item.findById(nombre_item);
 
@@ -49,9 +54,9 @@ public class ServiceOlli {
         }
 
         return orden;
-    }
+    }*/
 
-    public List<Orden> comandaMultiple(String nombre_usuaria, List<String> items) {
+    /*public List<Orden> comandaMultiple(String nombre_usuaria, List<String> items) {
         Usuaria usuaria = Usuaria.findById(nombre_usuaria);
         List<Orden> ordenes = new ArrayList<>();
 
@@ -64,5 +69,5 @@ public class ServiceOlli {
             }
         }
         return ordenes;
-    }
+    }*/
 }
