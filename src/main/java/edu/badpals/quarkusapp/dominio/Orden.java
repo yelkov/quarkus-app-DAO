@@ -1,4 +1,4 @@
-package edu.badpals.quarkusapp;
+package edu.badpals.quarkusapp.dominio;
 
 
 import jakarta.persistence.*;

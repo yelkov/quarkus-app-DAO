@@ -1,5 +1,11 @@
 package edu.badpals.quarkusapp;
 
+import edu.badpals.quarkusapp.dominio.Item;
+import edu.badpals.quarkusapp.dominio.Orden;
+import edu.badpals.quarkusapp.dominio.Usuaria;
+import edu.badpals.quarkusapp.repository.ItemRepository;
+import edu.badpals.quarkusapp.repository.OrdenRepository;
+import edu.badpals.quarkusapp.repository.UsuariaRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
