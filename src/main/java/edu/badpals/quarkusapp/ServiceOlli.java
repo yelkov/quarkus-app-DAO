@@ -12,6 +12,8 @@ public class ServiceOlli {
 
     @Inject
     UsuariaRepository usuariaRepository;
+    @Inject
+    ItemRepository itemRepository;
 
     public Usuaria cargaUsuaria(String nombre_usuaria) {
         Optional<Usuaria> usuaria = usuariaRepository.findByIdOptional(nombre_usuaria);
@@ -21,12 +23,12 @@ public class ServiceOlli {
     }
 
 
-    /*public Item cargaItem(String nombre_item) {
-        Optional<Item> item = Item.findByIdOptional(nombre_item);
+    public Item cargaItem(String nombre_item) {
+        Optional<Item> item = itemRepository.findByIdOptional(nombre_item);
         return item.isPresent()?
                 item.get():
                 new Item();
-    }*/
+    }
 
     /*public List<Orden> cargaOrden(String nombre_usuaria) {
         List<Orden> ordenes = Orden.listAll();

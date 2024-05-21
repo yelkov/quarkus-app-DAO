@@ -47,13 +47,13 @@ public class ServiceTest {
 	 * Completa la definicion y el mapping
 	 * de la clase Usuaria a la tabla t_users
 	 */
-	/*@Test
+	@Test
 	public void test_mapping_usuaria() {
 		Usuaria elfo = em.find(Usuaria.class, "Doobey");
         Assertions.assertThat(elfo).isNotNull();
         Assertions.assertThat(elfo.getNombre()).isEqualTo("Doobey");
         Assertions.assertThat(elfo.getDestreza()).isEqualTo(15);
-	}*/
+	}
 
     /**
 	 * Completa la definicion y el mapping
@@ -111,7 +111,7 @@ public class ServiceTest {
      * y valores como se indica en los casos test.
 	 */
 
-    /*@Test
+    @Test
 	public void test_carga_item() {
         Assertions.assertThat(servicio).isNotNull();
 		Item item = servicio.cargaItem("Elixir of the Mongoose");
@@ -127,7 +127,7 @@ public class ServiceTest {
 		Assertions.assertThat(item).isNotNull();
 		Assertions.assertThat(item.getNombre()).isEmpty();
 		Assertions.assertThat(item.getQuality()).isZero();
-	}*/
+	}
 
 	/**
 	 * Implementa el metodo cargaOrden del servicio.
